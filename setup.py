@@ -4,7 +4,7 @@ package_name = 'vocalize_ros2'
 
 setup(
     name=package_name,
-    version='0.0.0',
+    version='1.0.0',
     packages=find_packages(exclude=['test']),
     data_files=[
         ('share/ament_index/resource_index/packages',
@@ -20,7 +20,7 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
-            'vocalize_ros2_node = vocalize_ros2.vocalize_ros2_node:main'
+            'vocalize_espeak_ros2 = vocalize_ros2.vocalize_espeak_ros2:main'
         ],
     },
 )
