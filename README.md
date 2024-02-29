@@ -6,7 +6,7 @@
 
 sudo apt update
 
-sudo apt install espeak-ng sudo apt install sox sudo apt-get install libsox-fmt-mp3
+sudo apt install espeak-ng sox libsox-fmt-mp3
 
 ## Install Additional Languages (MBROLA)
 
@@ -32,14 +32,40 @@ espeak-ng -d "default:0" "Hello. World"
 
 espeak-ng --voices
 
-## Audio Device Utilities
+# ALSA Audio Device Setup / Utilities (Recommended)
 
 sudo apt install alsamixer
-sudo apt install pulseaudio-utils
 
-## Volume Control / List Audio Devices / Default Audio Device
+## Volume Control / Device Info
 
 alsamixer
+
+## Audio Device List
+
+cat /proc/asound/cards
+
+## Configure Default Audio Device
+
+sudo nano /etc/asound.conf
+
+defaults.pcm.card 1
+defaults.ctl.card 1
+
+OR
+
+pcm.!default {
+    type hw
+    card 0
+}
+
+ctl.!default {
+    type hw
+    card 0
+}
+
+## PulseAudio
+
+sudo apt install pulseaudio-utils
 
 pacmd set-sink-volume index volume
 
@@ -68,17 +94,19 @@ sudo apt install python3-pip
 
 pip3 install TTS
 
-# Running coqui tts
+## Running coqui tts
 
 tts --text "Ahh. You finally arrived. Welcome to the dark side. We have been waiting." --out_path test.wav --model_name "tts_models/en/vctk/vits" --speaker_idx p270
 
 tts --text "Hello coqui ai fans this is a voice you can make say what you desire." --model_name "tts_models/en/ljspeech/speedy-speech-wn"  --out_path foo.wav
 
-# tts web gui server
+## tts web gui server
+
 tts-server --model_name "tts_models/en/vctk/vits"
+
 http://127.0.0.1:5002
 
-# VCTK/VITS Voices
+## VCTK/VITS Voices
 
 ID	NAME	AGE	GENDER	ACCENTS REGION COMMENT
 
