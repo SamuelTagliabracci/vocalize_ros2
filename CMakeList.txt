@@ -1,6 +1,29 @@
+cmake_minimum_required(VERSION 3.5)
+project(vocalize_ros2)
+
+# Find Dependencies
 find_package(ament_cmake REQUIRED)
 find_package(rclpy REQUIRED)
+find_package(std_msgs REQUIRED)
 
-ament_python_install_package("vocalize_ros2")
+# Include directories
+#include_directories(include)
+
+# Add executable
+#add_executable(vocalize_espeak_ros2 src/vocalize_espeak_ros2.py)
+
+# Install Python executable
+ament_python_install_package(${PROJECT_NAME}
+  SCRIPTS vocalize_espeak_ros2.py
+  DESTINATION lib/${PROJECT_NAME}
+)
+
+# Install launch files
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}
+)
+
+#ament_python_install_package("vocalize_ros2")
 
 ament_package()

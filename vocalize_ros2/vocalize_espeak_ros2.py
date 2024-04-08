@@ -22,6 +22,12 @@ class VocalizeNode(Node):
             self.response_callback,
             10
         )
+        self.subscription = self.create_subscription(
+            String,
+            '/gpt/response',
+            self.response_callback,
+            10
+        )
 
     voice = "zh-yue"
     speed = 150
