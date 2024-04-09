@@ -1,0 +1,7 @@
+vocalize_ros2:
+  ros__parameters:
+    voice: "en-us"
+    speed: 150
+    amplitude: 150
+    pitch: 90
+    wordgap: 15
