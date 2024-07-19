@@ -25,6 +25,7 @@ setup(
         'console_scripts': [
             'vocalize_espeak_ros2 = vocalize_ros2.vocalize_espeak_ros2:main',
             'vocalize_coqui_ros2 = vocalize_ros2.vocalize_coqui_ros2:main',
+            'vocalize_elevenlabs_ros2 = vocalize_ros2.vocalize_elevenlabs_ros2:main',
             'coquidemo = vocalize_ros2.coqui:main',
         ],
     },
