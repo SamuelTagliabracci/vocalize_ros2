@@ -5,7 +5,7 @@
 from elevenlabs.client import ElevenLabs
 from elevenlabs import play
 
-import sounddevice as sd
+#import sounddevice as sd
 import rclpy
 from std_msgs.msg import String
 from rclpy.node import Node
@@ -34,7 +34,8 @@ class VocalizeNode(Node):
         )
 
 #        self.voice = "Carter the Mountain King"
-        self.voice = "Ava - Calm and slow"
+#        self.voice = "Ava - Calm and slow"
+        self.voice = "Bartholomeus Bösewicht - Grim and Gruesome"
         self.model = "eleven_multilingual_v2"
         self.lastdata = ""
 
@@ -59,9 +60,12 @@ class VocalizeNode(Node):
 #        sd.play(audio)
 #        sd.wait()
 
-if __name__ == '__main__':
+def main(args=None):
     rclpy.init(args=None)
     vocalize_node = VocalizeNode()
     rclpy.spin(vocalize_node)
     vocalize_node.destroy_node()
     rclpy.shutdown()
+
+if __name__ == '__main__':
+    main()
